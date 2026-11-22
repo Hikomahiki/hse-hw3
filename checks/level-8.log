@@ -1,0 +1,249 @@
++ compose=(docker compose -p hw3-redis -f compose.yaml)
++ url=http://127.0.0.1:8080
++ docker compose -p hw3-redis -f compose.yaml up --build --wait --wait-timeout 60
+ Image redis:7.4-alpine Pulling 
+ 4a603bc2424c Pulling fs layer 0B
+ ad83137ff0b2 Pulling fs layer 0B
+ 710f3da1112f Pulling fs layer 0B
+ 6c0bde7286d0 Pulling fs layer 0B
+ 0e50696bc150 Pulling fs layer 0B
+ f55179448640 Pulling fs layer 0B
+ 4f4fb700ef54 Pulling fs layer 0B
+ ad83137ff0b2 Downloading 200.3kB
+ ad83137ff0b2 Download complete 0B
+ f55179448640 Downloading 1.049MB
+ 6c0bde7286d0 Downloading 948B
+ f55179448640 Downloading 1.049MB
+ 6c0bde7286d0 Download complete 0B
+ f55179448640 Downloading 1.049MB
+ f55179448640 Downloading 1.049MB
+ f55179448640 Downloading 1.049MB
+ 710f3da1112f Downloading 1.049MB
+ 0e50696bc150 Downloading 99B
+ f55179448640 Downloading 1.049MB
+ 710f3da1112f Downloading 1.049MB
+ 710f3da1112f Downloading 1.049MB
+ 0e50696bc150 Download complete 0B
+ f55179448640 Downloading 2.097MB
+ 710f3da1112f Downloading 1.049MB
+ f55179448640 Downloading 2.097MB
+ 710f3da1112f Downloading 1.049MB
+ f55179448640 Downloading 2.097MB
+ 710f3da1112f Downloading 1.049MB
+ f55179448640 Downloading 2.097MB
+ 4a603bc2424c Download complete 0B
+ 710f3da1112f Downloading 2.097MB
+ f55179448640 Downloading 2.097MB
+ f55179448640 Downloading 2.097MB
+ 710f3da1112f Downloading 2.097MB
+ 710f3da1112f Downloading 2.097MB
+ f55179448640 Downloading 3.146MB
+ f55179448640 Downloading 3.146MB
+ 710f3da1112f Downloading 2.097MB
+ f55179448640 Downloading 3.146MB
+ 710f3da1112f Downloading 2.097MB
+ 710f3da1112f Downloading 2.097MB
+ f55179448640 Downloading 3.146MB
+ 4f4fb700ef54 Download complete 0B
+ f55179448640 Downloading 3.146MB
+ 710f3da1112f Downloading 3.146MB
+ f55179448640 Downloading 4.194MB
+ 710f3da1112f Downloading 3.146MB
+ f55179448640 Downloading 4.194MB
+ dfed3a5d50b9 Downloading 24.69kB
+ 710f3da1112f Downloading 3.146MB
+ dfed3a5d50b9 Download complete 0B
+ 710f3da1112f Download complete 0B
+ f55179448640 Downloading 4.194MB
+ 710f3da1112f Extracting 1B
+ f55179448640 Downloading 4.194MB
+ ad83137ff0b2 Extracting 1B
+ 6c0bde7286d0 Pull complete 0B
+ 710f3da1112f Pull complete 0B
+ f55179448640 Downloading 5.243MB
+ ad83137ff0b2 Pull complete 0B
+ f55179448640 Downloading 5.243MB
+ f55179448640 Downloading 5.243MB
+ f55179448640 Downloading 5.243MB
+ f55179448640 Downloading 5.243MB
+ 5864e364268f Downloading 463.4kB
+ f55179448640 Downloading 5.243MB
+ 5864e364268f Download complete 0B
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 6.291MB
+ f55179448640 Downloading 7.34MB
+ f55179448640 Downloading 7.34MB
+ f55179448640 Downloading 8.389MB
+ f55179448640 Downloading 8.389MB
+ f55179448640 Downloading 8.389MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 9.437MB
+ f55179448640 Downloading 10.49MB
+ f55179448640 Downloading 10.49MB
+ f55179448640 Downloading 11.53MB
+ f55179448640 Downloading 11.53MB
+ f55179448640 Downloading 11.53MB
+ f55179448640 Download complete 0B
+ f55179448640 Extracting 1B
+ f55179448640 Extracting 1B
+ f55179448640 Pull complete 0B
+ 0e50696bc150 Pull complete 0B
+ 4a603bc2424c Pull complete 0B
+ 4f4fb700ef54 Pull complete 0B
+ Image redis:7.4-alpine Pulled 
+ Image hw3-redis-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 484B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 83B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 94B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && install -d -o 10001 -g 10001 /data /data/sqlite
+#7 CACHED
+
+#8 [2/5] WORKDIR /app
+#8 CACHED
+
+#9 [3/5] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [5/5] COPY app/app.py .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:c711667ad882b6bc74e8fce83e8bfb6adb1ad752b0317fea0addf7e407cd33f0 0.0s done
+#11 exporting config sha256:102ef4ee148ef7ceff8b8f9600029d45649878304393656f9d687475277f3f86 0.0s done
+#11 exporting attestation manifest sha256:5134f1e2372f1bdae8820b00d75b8036561980ec458b729410caf075f5a3d109 0.0s done
+#11 exporting manifest list sha256:95f791bdcf8bf19a62fc9ec90ddc6cedc1bceef6a15e2177d55add4c841eac59
+#11 exporting manifest list sha256:95f791bdcf8bf19a62fc9ec90ddc6cedc1bceef6a15e2177d55add4c841eac59 0.0s done
+#11 naming to docker.io/library/hw3-redis-app:latest done
+#11 unpacking to docker.io/library/hw3-redis-app:latest done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image hw3-redis-app Built 
+ Network hw3-redis_default Creating 
+ Network hw3-redis_default Creating 
+ Volume hw3-redis_redis_data Creating 
+ Volume hw3-redis_redis_data Creating 
+ Volume hw3-redis_redis_data Created 
+ Volume hw3-redis_redis_data Created 
+ Network hw3-redis_default Created 
+ Network hw3-redis_default Created 
+ Container hw3-redis-redis-1 Creating 
+ Container hw3-redis-redis-1 Created 
+ Container hw3-redis-app-1 Creating 
+ Container hw3-redis-app-1 Created 
+ Container hw3-redis-redis-1 Starting 
+ Container hw3-redis-redis-1 Started 
+ Container hw3-redis-redis-1 Waiting 
+ Container hw3-redis-redis-1 Healthy 
+ Container hw3-redis-app-1 Starting 
+ Container hw3-redis-app-1 Started 
+ Container hw3-redis-redis-1 Waiting 
+ Container hw3-redis-app-1 Waiting 
+ Container hw3-redis-redis-1 Healthy 
+ Container hw3-redis-app-1 Healthy 
++ docker compose -p hw3-redis -f compose.yaml ps
+NAME                IMAGE              COMMAND                  SERVICE   CREATED                  STATUS                   PORTS
+hw3-redis-app-1     hw3-redis-app      "python app.py"          app       Less than a second ago   Up 2 seconds (healthy)   127.0.0.1:8080->8000/tcp
+hw3-redis-redis-1   redis:7.4-alpine   "docker-entrypoint.s…"   redis     Less than a second ago   Up 5 seconds (healthy)   6379/tcp
++ curl -fsS -w '\n' -X POST http://127.0.0.1:8080/increment
+{"greeting": "Hello, HSE!", "count": 1, "hostname": "a4c581d8bc1b", "storage": "redis"}
++ curl -fsS -w '\n' -X POST http://127.0.0.1:8080/increment
+{"greeting": "Hello, HSE!", "count": 2, "hostname": "a4c581d8bc1b", "storage": "redis"}
++ curl -fsS -w '\n' http://127.0.0.1:8080/
+{"greeting": "Hello, HSE!", "count": 2, "hostname": "a4c581d8bc1b", "storage": "redis"}
++ docker compose -p hw3-redis -f compose.yaml down
+ Container hw3-redis-app-1 Stopping 
+ Container hw3-redis-app-1 Stopped 
+ Container hw3-redis-app-1 Removing 
+ Container hw3-redis-app-1 Removed 
+ Container hw3-redis-redis-1 Stopping 
+ Container hw3-redis-redis-1 Stopped 
+ Container hw3-redis-redis-1 Removing 
+ Container hw3-redis-redis-1 Removed 
+ Network hw3-redis_default Removing 
+ Network hw3-redis_default Removed 
++ docker compose -p hw3-redis -f compose.yaml up --wait --wait-timeout 60
+ Network hw3-redis_default Creating 
+ Network hw3-redis_default Creating 
+ Network hw3-redis_default Created 
+ Network hw3-redis_default Created 
+ Container hw3-redis-redis-1 Creating 
+ Container hw3-redis-redis-1 Created 
+ Container hw3-redis-app-1 Creating 
+ Container hw3-redis-app-1 Created 
+ Container hw3-redis-redis-1 Starting 
+ Container hw3-redis-redis-1 Started 
+ Container hw3-redis-redis-1 Waiting 
+ Container hw3-redis-redis-1 Healthy 
+ Container hw3-redis-app-1 Starting 
+ Container hw3-redis-app-1 Started 
+ Container hw3-redis-redis-1 Waiting 
+ Container hw3-redis-app-1 Waiting 
+ Container hw3-redis-redis-1 Healthy 
+ Container hw3-redis-app-1 Healthy 
++ curl -fsS -w '\n' http://127.0.0.1:8080/
+{"greeting": "Hello, HSE!", "count": 2, "hostname": "85daf89723a1", "storage": "redis"}
++ docker compose -p hw3-redis -f compose.yaml stop redis
+ Container hw3-redis-redis-1 Stopping 
+ Container hw3-redis-redis-1 Stopped 
++ curl -sS --max-time 5 -o /dev/null -w 'GET /healthz → %{http_code}\n' http://127.0.0.1:8080/healthz
+GET /healthz → 200
++ curl -sS --max-time 5 -o /dev/null -w 'GET /readyz → %{http_code}\n' http://127.0.0.1:8080/readyz
+GET /readyz → 503
++ curl -sS --max-time 5 -o /dev/null -w 'POST /increment → %{http_code}\n' -X POST http://127.0.0.1:8080/increment
+POST /increment → 503
++ docker compose -p hw3-redis -f compose.yaml start redis
+ Container hw3-redis-redis-1 Starting 
+ Container hw3-redis-redis-1 Started 
++ curl -fsS --max-time 4 --retry 12 --retry-max-time 45 -w '\n' http://127.0.0.1:8080/readyz
+{"status": "ready", "storage": "redis"}
++ curl -fsS -w '\n' http://127.0.0.1:8080/
+{"greeting": "Hello, HSE!", "count": 2, "hostname": "85daf89723a1", "storage": "redis"}
++ curl -fsS -w '\n' -X POST http://127.0.0.1:8080/increment
+{"greeting": "Hello, HSE!", "count": 3, "hostname": "85daf89723a1", "storage": "redis"}
++ docker compose -p hw3-redis -f compose.yaml down
+ Container hw3-redis-app-1 Stopping 
+ Container hw3-redis-app-1 Stopped 
+ Container hw3-redis-app-1 Removing 
+ Container hw3-redis-app-1 Removed 
+ Container hw3-redis-redis-1 Stopping 
+ Container hw3-redis-redis-1 Stopped 
+ Container hw3-redis-redis-1 Removing 
+ Container hw3-redis-redis-1 Removed 
+ Network hw3-redis_default Removing 
+ Network hw3-redis_default Removed 

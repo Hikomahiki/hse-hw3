@@ -1,0 +1,101 @@
++ docker stop hw3-counter-4
+hw3-counter-4
++ cp -n .env.example .env
+cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead
++ compose=(docker compose -p hw3-sqlite -f compose.sqlite.yaml)
++ docker compose -p hw3-sqlite -f compose.sqlite.yaml up --build --wait --wait-timeout 60
+ Image hw3-sqlite-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 486B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 83B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 94B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY app/requirements.txt .
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && install -d -o 10001 -g 10001 /data /data/sqlite
+#9 CACHED
+
+#10 [5/5] COPY app/app.py .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:29fa4ffca8b9221640bee4a96eb844b8db7c29fbea883ffe4d4efc584d544c73 0.0s done
+#11 exporting config sha256:40a41857a95e161af3d5ef319492ff8c0f1172c6a839b12ee4f5e4d394a84402 0.0s done
+#11 exporting attestation manifest sha256:d0e691c1a378443cc78cf6d6601892ef553e6ac398aeefe75c78b00767ea56e6 0.0s done
+#11 exporting manifest list sha256:478d10c4f0d316b177e0b12503d4c06535c7985191f84d695ce051d3c09e78c6
+#11 exporting manifest list sha256:478d10c4f0d316b177e0b12503d4c06535c7985191f84d695ce051d3c09e78c6 0.0s done
+#11 naming to docker.io/library/hw3-sqlite-app:latest done
+#11 unpacking to docker.io/library/hw3-sqlite-app:latest done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image hw3-sqlite-app Built 
+ Network hw3-sqlite_default Creating 
+ Volume hw3-sqlite_sqlite_data Creating 
+ Network hw3-sqlite_default Creating 
+ Volume hw3-sqlite_sqlite_data Creating 
+ Volume hw3-sqlite_sqlite_data Created 
+ Volume hw3-sqlite_sqlite_data Created 
+ Network hw3-sqlite_default Created 
+ Network hw3-sqlite_default Created 
+ Container hw3-sqlite-app-1 Creating 
+ Container hw3-sqlite-app-1 Created 
+ Container hw3-sqlite-app-1 Starting 
+ Container hw3-sqlite-app-1 Started 
+ Container hw3-sqlite-app-1 Waiting 
+ Container hw3-sqlite-app-1 Healthy 
++ curl -fsS -w '\n' -X POST http://127.0.0.1:8080/increment
+{"greeting": "Hello, HSE!", "count": 1, "hostname": "2a724489ed89", "storage": "sqlite"}
++ curl -fsS -w '\n' http://127.0.0.1:8080/
+{"greeting": "Hello, HSE!", "count": 1, "hostname": "2a724489ed89", "storage": "sqlite"}
++ docker compose -p hw3-sqlite -f compose.sqlite.yaml down
+ Container hw3-sqlite-app-1 Stopping 
+ Container hw3-sqlite-app-1 Stopped 
+ Container hw3-sqlite-app-1 Removing 
+ Container hw3-sqlite-app-1 Removed 
+ Network hw3-sqlite_default Removing 
+ Network hw3-sqlite_default Removed 
++ docker compose -p hw3-sqlite -f compose.sqlite.yaml up --wait --wait-timeout 60
+ Network hw3-sqlite_default Creating 
+ Network hw3-sqlite_default Creating 
+ Network hw3-sqlite_default Created 
+ Network hw3-sqlite_default Created 
+ Container hw3-sqlite-app-1 Creating 
+ Container hw3-sqlite-app-1 Created 
+ Container hw3-sqlite-app-1 Starting 
+ Container hw3-sqlite-app-1 Started 
+ Container hw3-sqlite-app-1 Waiting 
+ Container hw3-sqlite-app-1 Healthy 
++ curl -fsS -w '\n' http://127.0.0.1:8080/
+{"greeting": "Hello, HSE!", "count": 1, "hostname": "b5e5f059f771", "storage": "sqlite"}
++ docker compose -p hw3-sqlite -f compose.sqlite.yaml down
+ Container hw3-sqlite-app-1 Stopping 
+ Container hw3-sqlite-app-1 Stopped 
+ Container hw3-sqlite-app-1 Removing 
+ Container hw3-sqlite-app-1 Removed 
+ Network hw3-sqlite_default Removing 
+ Network hw3-sqlite_default Removed 

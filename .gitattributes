@@ -1,0 +1,3 @@
+scripts/*.sh text eol=lf
+app/app.py text eol=lf
+app/requirements.txt text eol=lf

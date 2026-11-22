@@ -1,0 +1,210 @@
+
+== чистый проект и первые запросы ==
+ Image hw3check-tmpjxsmbsddmb-source-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 524B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 83B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 94B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [3/5] COPY app/requirements.txt .
+#7 CACHED
+
+#8 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && install -d -o 10001 -g 10001 /data /data/sqlite
+#8 CACHED
+
+#9 [2/5] WORKDIR /app
+#9 CACHED
+
+#10 [5/5] COPY app/app.py .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:73749c2243de9694e886c2b0b086970591b926ec393dd63502d4466ab60e264b 0.0s done
+#11 exporting config sha256:bfa5cab758006099b14105c35edaf16854c40f1413ca19d7202d4d50d6581c03 0.0s done
+#11 exporting attestation manifest sha256:bcbb175859e01bc410b1407c272e19a0483f214189ccdd439f90329b3a5ece74 0.0s done
+#11 exporting manifest list sha256:950b6705c3f234021bbae8d1b98d3b1922c1ce64ef20486a93ef11dc9305e336
+#11 exporting manifest list sha256:950b6705c3f234021bbae8d1b98d3b1922c1ce64ef20486a93ef11dc9305e336 0.0s done
+#11 naming to docker.io/library/hw3check-tmpjxsmbsddmb-source-app:latest done
+#11 unpacking to docker.io/library/hw3check-tmpjxsmbsddmb-source-app:latest done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image hw3check-tmpjxsmbsddmb-source-app Built 
+ Network hw3check-tmpjxsmbsddmb-source_default Creating 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Creating 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Creating 
+ Network hw3check-tmpjxsmbsddmb-source_default Creating 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Created 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Created 
+ Network hw3check-tmpjxsmbsddmb-source_default Created 
+ Network hw3check-tmpjxsmbsddmb-source_default Created 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Creating 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Created 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Creating 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Created 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Started 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Healthy 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Started 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Healthy 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Healthy 
+GET / → count=0
+POST /increment → count=1
+POST /increment → count=2
+POST /increment → count=3
+GET / → count=3
+
+== пересоздание контейнера приложения ==
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Recreate 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Recreated 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Started 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Healthy 
+GET / → count=3
+
+== остановка и повторный запуск Redis ==
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopped 
+GET /healthz → HTTP 200
+GET /readyz → HTTP 503
+POST /increment → HTTP 503
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Started 
+GET / → count=3
+POST /increment → count=4
+
+== резервная копия и удаление исходного проекта ==
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-source-redis-run-052645ad125b Creating 
+ Container hw3check-tmpjxsmbsddmb-source-redis-run-052645ad125b Created 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Removing 
+ Container hw3check-tmpjxsmbsddmb-source-app-1 Removed 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Removing 
+ Container hw3check-tmpjxsmbsddmb-source-redis-1 Removed 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Removing 
+ Network hw3check-tmpjxsmbsddmb-source_default Removing 
+ Volume hw3check-tmpjxsmbsddmb-source_redis_data Removed 
+ Network hw3check-tmpjxsmbsddmb-source_default Removed 
+
+== восстановление в новый проект ==
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Creating 
+ Network hw3check-tmpjxsmbsddmb-restore_default Creating 
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Creating 
+ Network hw3check-tmpjxsmbsddmb-restore_default Creating 
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Created 
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Created 
+ Network hw3check-tmpjxsmbsddmb-restore_default Created 
+ Network hw3check-tmpjxsmbsddmb-restore_default Created 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-run-8c9f9f7e355f Creating 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-run-8c9f9f7e355f Created 
+ Image hw3check-tmpjxsmbsddmb-restore-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 526B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 83B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 94B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY app/requirements.txt .
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt     && install -d -o 10001 -g 10001 /data /data/sqlite
+#9 CACHED
+
+#10 [5/5] COPY app/app.py .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:9d34c81407b4af936cc4a593684fb2fa722d14cd8599a2ffccc771ef86923e48 0.0s done
+#11 exporting config sha256:40abcb4ceec2f4774846677532ad87bb68775118a03adf0236a85f3196879d43 0.0s done
+#11 exporting attestation manifest sha256:abd2c882024872a57fad8cf990484a46716ecd9543a0ef3573ce8b0041097923 0.0s done
+#11 exporting manifest list sha256:6ba7734fe27b7a063bdb174fde2f88f98fa169f9d9bb6f26df3fb6d86f9b41ca 0.0s done
+#11 naming to docker.io/library/hw3check-tmpjxsmbsddmb-restore-app:latest done
+#11 unpacking to docker.io/library/hw3check-tmpjxsmbsddmb-restore-app:latest done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image hw3check-tmpjxsmbsddmb-restore-app Built 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Creating 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Created 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Creating 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Created 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Started 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Healthy 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Starting 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Started 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Waiting 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Healthy 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Healthy 
+GET / → count=4
+POST /increment → count=5
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Removing 
+ Container hw3check-tmpjxsmbsddmb-restore-app-1 Removed 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Stopping 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Stopped 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Removing 
+ Container hw3check-tmpjxsmbsddmb-restore-redis-1 Removed 
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Removing 
+ Network hw3check-tmpjxsmbsddmb-restore_default Removing 
+ Volume hw3check-tmpjxsmbsddmb-restore_redis_data Removed 
+ Network hw3check-tmpjxsmbsddmb-restore_default Removed 
+OK: все проверки пройдены
